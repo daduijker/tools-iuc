@@ -57,6 +57,10 @@
 
         -I $inflation
 
+        #if $fewer-files
+            --fewer-files
+        #end if
+
         #if $trees.run_mode == "full":
             -M '${trees.tree_method.method}'
             #if $trees.tree_method.method == "msa":
@@ -153,6 +157,7 @@
 
         <param argument="-I" name="inflation" type="float" value="1.5" label="Inflation parameter" help="Modify inflation parameter for MCL. Not recommended." />
         <param name="output_duplications" type="boolean" checked="false" label="Generate output about gene duplication events"/>
+        <param argument="--fewer-files" type="boolean" checked="false" label="Only write one orthologs file per species" />
     </inputs>
     <outputs>
         <!-- Orthogroups results -->
